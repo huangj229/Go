@@ -39,3 +39,22 @@ func (q *Queue) Show () {
 		fmt.Println(arg)
 	}
 }
+
+func (q *Queue) Pop() interface{} {
+	if len(q.items) == 0 {
+		return nil
+	}
+
+	q.lock.Lock()
+	head := q.items[0]
+	q.items = q.items[1:]
+	q.lock.Unlock()
+	return head
+}
+
+func (q *Queue) Len() int {
+	q.lock.Lock()
+	defer q.lock.Unlock()
+	return len(q.items)
+
+}

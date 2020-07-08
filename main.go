@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-    "./queue"
+	"./queue"
 )
 
 func main() {
@@ -33,7 +33,10 @@ func main() {
 	var myint queue.Queue // 声明一个任意类型的队列
 	myint.Put(3)
 	myint.Put(4)
-    myint.Show()
+	myint.Show()
+	tmp := myint.Pop()
+	myint.Show()
+	fmt.Println("tmp = ",tmp)
 }
 
 type circle struct {
