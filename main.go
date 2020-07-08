@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+    "./queue"
+)
 
 func main() {
 	slice := []int{1,2,3}
@@ -16,7 +19,7 @@ func main() {
 		fmt.Println("index = ", i," value = ", v)
 	}
 
-    var a int = 1
+	var a int = 1
 	var b int = 2
 
 	fmt.Println(calculate(a, b))
@@ -26,6 +29,10 @@ func main() {
 	fmt.Println(c1.getArea())
 	c1.setRadius(20)
 	fmt.Println(c1.getArea())
+
+	var myint *queue.Queue // 声明一个队列，在这里可以用来装任何东西
+	myint.Put(3)
+	myint.Put(4)
 
 }
 
