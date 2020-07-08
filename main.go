@@ -20,11 +20,33 @@ func main() {
 	var b int = 2
 
 	fmt.Println(calculate(a, b))
+
+	var c1 circle
+	c1.radius = 10;
+	fmt.Println(c1.getArea())
+	c1.setRadius(20)
+	fmt.Println(c1.getArea())
+
 }
 
+type circle struct {
+	radius float64
+}
+
+/*实现函数*/
 func calculate(a int, b int) int {
 	fmt.Println("a = ", a)
 	defer fmt.Println("b = ", b)
 	fmt.Println("a2 = ", a)
     return a + b
+}
+
+/*实现circle类的方法*/
+func (c circle) getArea() float64 {
+      return c.radius * c.radius * 3.14
+}
+
+/*实现circle类的方法*/
+func (c* circle) setRadius(radius float64) {
+	    c.radius = radius
 }
