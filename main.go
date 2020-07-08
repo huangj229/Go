@@ -15,4 +15,16 @@ func main() {
 	for i,v := range slice {
 		fmt.Println("index = ", i," value = ", v)
 	}
+
+    var a int = 1
+	var b int = 2
+
+	fmt.Println(calculate(a, b))
+}
+
+func calculate(a int, b int) int {
+	fmt.Println("a = ", a)
+	defer fmt.Println("b = ", b)
+	fmt.Println("a2 = ", a)
+    return a + b
 }
