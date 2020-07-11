@@ -2,7 +2,8 @@ package test
 
 import (
     "fmt"
-    "../queue"    
+	"../queue"
+	"net"    
 )
 
 func Test() {
@@ -59,4 +60,13 @@ func (c circle) getArea() float64 {
 /*实现circle类的方法*/
 func (c* circle) setRadius(radius float64) {
 	    c.radius = radius
+}
+
+func TestNet() {
+	ip,err := net.ResolveIPAddr("ip", "www.baidu.com")
+	if err != nil {
+		fmt.Println(err)
+		return 
+	}
+	fmt.Println("www.baidu.com: ", ip)
 }

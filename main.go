@@ -10,17 +10,20 @@ import (
 
 
 var (
-        testFlag bool
+        testFlag int
 )
 
 func init() {
-        flag.BoolVar(&testFlag,"t",false,"test Go script")
+        flag.IntVar(&testFlag,"t", 0, "test Go script: [0]:basic func; [1]:net")
         flag.Parse()
 }
 
 func main() {
-    if testFlag {
+    switch testFlag {
+    case 0 :
         test.Test()
+    case 1 :
+        test.TestNet()
     }
     
 
