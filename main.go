@@ -3,7 +3,18 @@ package main
 import (
 	"fmt"
 	"./queue"
+        "flag"
 )
+
+
+var (
+        version bool
+)
+
+func init() {
+        flag.BoolVar(&version,"v",false,"show version")
+        flag.Parse()
+}
 
 func main() {
 	slice := []int{1,2,3}
