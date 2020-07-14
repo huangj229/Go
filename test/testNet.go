@@ -3,7 +3,8 @@ package test
 import (
     "fmt"
 	"net"
-	"bufio"    
+	"io"
+	"strings"    
 )
 
 
@@ -24,14 +25,28 @@ func TestNet() {
 		fmt.Println(err)
 		return
 	}
-	//ask for response from baidu.com
+	//close tcp con
+	defer conn.Close()
+
+	//send get to baidu.com ,HTTP 1.0
 	fmt.Fprintf(conn, "GET / HTTP/1.0\r\n\r\n")
-	status, err := bufio.NewReader(conn).ReadString('\n')
-	if err != nil {
-		fmt.Println("err:", err)
-		return
+	
+	var sb strings.Builder
+	buf := make([]byte, 256)
+	for {
+		n, err := conn.Read(buf)
+		if err != nil {
+			if err != io.EOF{
+				fmt.Println("read error :", err)
+			}
+			break
+		} 
+		sb.Write(buf[:n])
 	}
-	fmt.Println("status:", status)
+	// display result
+	// http introduce https://www.ruanyifeng.com/blog/2016/08/http.html
+	fmt.Println("response:", sb.String())
+	fmt.Println("total response size:", sb.Len())
 
 
 }
