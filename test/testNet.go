@@ -5,18 +5,21 @@ import (
 	"net"
 	"io"
 	"strings"    
+    "../config"
 )
 
 
 
 func TestNet() {
+	config := config.LoadConfig()
+	
 	// resolve IP of baidu.com
-	ip,err := net.ResolveIPAddr("ip", "www.baidu.com")
+	ip,err := net.ResolveIPAddr("ip", config.Site.Domain)
 	if err != nil {
 		fmt.Println(err)
 		return 
 	}
-	fmt.Println("www.baidu.com: ", ip)
+	fmt.Println(config.Site.Domain, ": ", ip)
 
 
     //build connection to baidu.com
