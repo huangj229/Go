@@ -6,7 +6,7 @@ import (
 )
 
 func Test() {
-        slice := []int{1,2,3}
+    slice := []int{1,2,3}
 	fmt.Println("slice:", slice)
 	slice = append(slice, 4)
 	fmt.Println("slice:", slice)
@@ -51,12 +51,18 @@ func calculate(a int, b int) int {
     return a + b
 }
 
-/*实现circle类的方法*/
+/*
+实现circle类的方法
+这个不会写对象的值 const
+*/
 func (c circle) getArea() float64 {
       return c.radius * c.radius * 3.14
 }
 
-/*实现circle类的方法*/
+/*
+实现circle类的方法
+这个会写对象的值 非const
+*/
 func (c* circle) setRadius(radius float64) {
 	    c.radius = radius
 }
