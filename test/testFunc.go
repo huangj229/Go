@@ -26,7 +26,13 @@ func TestFunc() {
 	w,h := r1.GetRectangle()
     fmt.Println("w =" , w, "h =", h,"area =", r1.GetArea())
     fmt.Println("*********************End************************************")
-    }
+	}
+	{
+	fmt.Println("********************Shape Test******************************")
+	//var s shape.Shape
+    //not sure how to use
+    fmt.Println("*********************End************************************")
+	}
     {
     fmt.Println("******************Queue Test********************************")
 	var myQ queue.Queue
