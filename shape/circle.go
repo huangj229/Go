@@ -5,7 +5,7 @@
 */
 
 /*包名等同于外层文件夹名，不等于本文件名，一般使用小写，代表一个模块*/
-package circle
+package shape
 
 /*引入包，Go语言要求包在文件被用到，否则会报错*/
 import "math"
