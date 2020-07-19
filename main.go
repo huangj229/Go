@@ -1,11 +1,8 @@
 package main
 
 import (
-	"./test"
+	    "./test"
         "flag"
-        "os"
-        "os/signal"
-        "syscall"
 )
 
 
@@ -14,20 +11,18 @@ var (
 )
 
 func init() {
-        flag.IntVar(&testFlag,"t", 0, "test Go script: [0]:basic func; [1]:net")
+        flag.IntVar(&testFlag,"t", 0, "test Go script: [0]:basic func usage; [1]:net")
         flag.Parse()
 }
 
 func main() {
     switch testFlag {
     case 0 :
-        test.Test()
+        test.TestFunc()
     case 1 :
         test.TestNet()
     }
     
 
-    sigCh := make(chan os.Signal, 1)
-    signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
-    <-sigCh
+
 }
