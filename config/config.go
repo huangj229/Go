@@ -20,7 +20,7 @@ var once sync.Once
 
 func LoadConfig() *Configuration {
     once.Do(func() {
-        file, err := os.Open("config.json")
+        file, err := os.Open("config/config.json")
         if err != nil {
             log.Fatalln("Cannot open config file", err)
         }
